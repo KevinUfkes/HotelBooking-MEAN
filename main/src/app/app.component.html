@@ -1,0 +1,14 @@
+<!-- <div *ngIf="isLoggedIn">
+    <a routerLink='/logout'>Logout</a>
+</div> -->
+<div>
+    <div *ngIf="isLoggedIn; else isLogOut">
+        <a routerLink="/logout">Logout</a>
+    </div>
+
+    <ng-template #isLogOut>
+            
+    </ng-template>
+</div>
+
+<router-outlet></router-outlet>

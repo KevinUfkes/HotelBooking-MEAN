@@ -1,0 +1,42 @@
+<p>hotels works!</p>
+<div>
+    <a mat-raised-button color='accent' href="/bookings">Current Bookings</a>
+</div>
+<body>
+    
+   
+        <h1>Hotel List</h1>
+    
+    
+    <div style="padding: 13px;">
+        <mat-spinner *ngIf="hotels.length === 0"></mat-spinner>
+    
+        
+
+        <div *ngFor="let hotel of hotels" style="margin-top:11px;">
+            <mat-card>
+
+                <mat-card-header>
+                    
+                    <mat-card-title>{{ hotel.name }}</mat-card-title>
+                  
+                </mat-card-header>
+                <mat-card-content>
+                    <img mat-card-avatar src="./../../assets/images/hotels/{{ hotel.img }}" >
+                    <p>{{ hotel.street }}</p>
+                    <p>{{ hotel.city }}</p>
+                    <p>{{ hotel.postal_code }}</p>
+                    <br>
+                    <mat-card-subtitle>${{ hotel.price }} /night</mat-card-subtitle>
+                    <p>Contact: {{ hotel.email }}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <p>{{ hotel.id }}</p>
+                    <a mat-raised-button color="primary" [routerLink]="['/createbooking', hotel.id]">Book Hotel</a>
+                </mat-card-actions>
+            </mat-card>
+            
+        </div>
+
+    </div>
+</body>

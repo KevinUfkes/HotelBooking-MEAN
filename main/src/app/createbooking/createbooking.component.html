@@ -1,0 +1,19 @@
+<p>createbooking works!</p>
+<div>
+    Booking for: {{ hotel.name }}
+
+    <form [formGroup]="createBookingForm" (ngSubmit)="onSubmit()">
+           
+        <mat-form-field>
+            <mat-label>Arrival Date:</mat-label>
+            <input matInput type="date" required formControlName="arrivalDate">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Checkout Date:</mat-label>
+            <input matInput type="date" required formControlName="checkoutDate">
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color='primary' type='submit'>Book Hotel</button>
+    </form>
+</div>
