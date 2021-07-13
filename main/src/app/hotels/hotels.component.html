@@ -1,6 +1,6 @@
 <p>hotels works!</p>
 <div>
-    <a mat-raised-button color='accent' href="/bookings">Current Bookings</a>
+    <a mat-raised-button color='accent' [routerLink]="['/bookings']">Current Bookings</a>
 </div>
 <body>
     
@@ -10,8 +10,6 @@
     
     <div style="padding: 13px;">
         <mat-spinner *ngIf="hotels.length === 0"></mat-spinner>
-    
-        
 
         <div *ngFor="let hotel of hotels" style="margin-top:11px;">
             <mat-card>

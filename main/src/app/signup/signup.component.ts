@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { assertValidExecutionArguments } from 'graphql/execution/execute';
 import gql from 'graphql-tag';
 import { Apollo, Mutation } from 'apollo-angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -18,9 +19,7 @@ export class SignupComponent implements OnInit {
     passwordcheck: new FormControl()
   })
 
-  
-
-  constructor(private apollo: Apollo) { }
+  constructor(private apollo: Apollo, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -62,5 +61,6 @@ export class SignupComponent implements OnInit {
       console.log('there was an error sending the query', error);
       alert(`User was not created. Error: ${error}`)
     });
+    this.router.navigate(['/login']);
   }
 }

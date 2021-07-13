@@ -19,6 +19,9 @@ exports.resolvers = {
         getUsers: async (parent, args) => {
             return await User.find({});
         },
+        getUserById: async(parent, args) => {
+            return await User.findById(args.id)
+        },
         getUserByEmail: async(parent, args) => {
             return await User.findOne({"email": args.email})
         },
@@ -137,6 +140,7 @@ exports.resolvers = {
 
         let newBooking = new Booking({
             hotel_id: args.hotel_id,
+            hotel_name: args.hotel_name,
             booking_date: args.booking_date,
             booking_start: args.booking_start,
             booking_end: args.booking_end,

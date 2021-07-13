@@ -16,6 +16,7 @@ export class CreatebookingComponent implements OnInit {
 
   private query: QueryRef<any>;
   hotel: any;
+  hotel_name: any;
   arrivalDate: any;
   checkoutDate: any;
   bookingDate: any;
@@ -57,6 +58,8 @@ export class CreatebookingComponent implements OnInit {
       console.log(result.data.getHotelById)
 
       this.hotel = result.data.getHotelById;
+
+      this.hotel_name = result.data.getHotelById.name
       console.log(this.hotel);
     })
   }
@@ -72,11 +75,13 @@ export class CreatebookingComponent implements OnInit {
         booking_date: "${this.bookingDate}",
         booking_start: "${this.arrivalDate}",
         booking_end: "${this.checkoutDate}",
+        hotel_name: "${this.hotel.name}",
         user_id: "${this.userId}"){
         hotel_id
         booking_date
         booking_start
         booking_end
+        hotel_name
         user_id
       }}
     `

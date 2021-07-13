@@ -17,7 +17,6 @@ export class AuthenticationService {
 
   isLoggedIn = false;
   
-
   constructor(private apollo: Apollo) { }
 
   login(email: String, password: String): Observable<boolean> {

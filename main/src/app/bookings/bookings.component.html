@@ -1,1 +1,39 @@
 <p>bookings works!</p>
+<body>
+    
+   
+    <h1>Bookings for: {{ username }}</h1>
+    
+    <div style="padding: 13px;">
+        <mat-spinner *ngIf="bookings.length === 0"></mat-spinner>
+
+        <div *ngFor="let booking of bookings" style="margin-top:11px;">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{ booking.hotel_name }}</mat-card-title>       
+                </mat-card-header>
+                
+                <mat-card-content>
+                    <!-- <img mat-card-avatar src="./../../assets/images/hotels/{{ hotel.img }}" > -->
+                    <h4>Booking Created</h4>
+                    <p>{{ booking.booking_date }}</p>
+                    <br>
+                    <h4>Arrival:</h4>
+                    <p>{{ booking.booking_start }}</p>
+                    <br>
+                    <h4>Departure:</h4>
+                    <p>{{ booking.booking_end }}</p>
+                    <br>
+                    <!-- <mat-card-subtitle>${{ hotel.price }} /night</mat-card-subtitle> -->
+                    <!-- <p>Contact: {{ hotel.email }}</p> -->
+                </mat-card-content>
+                <!-- <mat-card-actions> -->
+                    <!-- <p>{{ hotel.id }}</p> -->
+                    <!-- <a mat-raised-button color="primary" [routerLink]="['/createbooking', hotel.id]">Book Hotel</a> -->
+                <!-- </mat-card-actions> -->
+            </mat-card>
+            
+        </div>
+
+    </div>
+</body>

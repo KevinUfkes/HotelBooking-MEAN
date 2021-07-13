@@ -3,6 +3,7 @@ import { Apollo, QueryRef } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { AuthenticationService } from './../authentication.service';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 const HOTELS_QUERY = gql`
   query{
@@ -25,12 +26,12 @@ const HOTELS_QUERY = gql`
   styleUrls: ['./hotels.component.css']
 })
 export class HotelsComponent implements OnInit {
-
+  user_id: ""
   hotels: any[] = [];
 
   private query: QueryRef<any>;
 
-  constructor(private apollo: Apollo, private authenticationService: AuthenticationService) { }
+  constructor(private apollo: Apollo, private activatedRoute: ActivatedRoute, private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
 
@@ -47,7 +48,6 @@ export class HotelsComponent implements OnInit {
       this.hotels = result.data.getHotels;
       console.log(this.hotels);
     })
-
     
   }
 

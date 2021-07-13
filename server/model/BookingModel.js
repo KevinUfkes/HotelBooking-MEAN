@@ -5,6 +5,10 @@ const BookingSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    hotel_name: {
+        type: String,
+        required: true
+    },
     booking_date: {
         type: String
     },

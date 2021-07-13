@@ -23,10 +23,12 @@ exports.typeDefs = gql `
    type Booking {
        id: ID!
        hotel_id: String!
+       hotel_name: String!
        booking_date: String!
        booking_start: String!
        booking_end: String!
        user_id: String!
+       
    }
 
    type Query {
@@ -75,9 +77,11 @@ exports.typeDefs = gql `
          ): User
 
       addBooking(hotel_id: String!
+         hotel_name: String!
          booking_date: String!
          booking_start: String!
          booking_end: String!
          user_id: String!): Booking
+         
       }
 `
